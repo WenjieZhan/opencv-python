@@ -1,0 +1,21 @@
+import cv2
+import numpy as np
+img1='/tmp/guest-ypcezg/Downloads/1.jpg'
+img2='/tmp/guest-ypcezg/Downloads/2.jpg'
+print('working')
+img1=cv2.imread(img1)
+img2=cv2.imread(img2)
+w=img1.shape[1]
+h=img1.shape[0]
+sz1=w
+sz0=h
+
+for y in range(0,sz0):
+    for x in range(0,sz1):
+        img2[y,x,:]=img1[y,x,:]*0.5+img2[y,x,:]
+        print('.')
+
+cv2.namedWindow('img2')
+cv2.imshow('img2',img2)
+cv2.waitKey()
+cv2.destroyAllWindows()
